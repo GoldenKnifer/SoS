@@ -1,0 +1,10 @@
+{
+  "name": "local-loop",
+  "version": "1.0.0",
+  "description": "Local Loop marketplace for second-hand items and rentals.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {}
+}

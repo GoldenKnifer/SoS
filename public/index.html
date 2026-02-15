@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Loop | Community Resale + Rentals</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav">
+        <div class="logo">Local Loop</div>
+        <div class="nav-links">
+          <a href="#register">Register</a>
+          <a href="#marketplace">Marketplace</a>
+          <a href="#student">College Corner</a>
+          <a href="#events">Events</a>
+        </div>
+        <a class="cta" href="#register">Start Selling</a>
+      </nav>
+      <div class="hero-content">
+        <div>
+          <p class="badge">Local Loop • Buy • Sell • Rent</p>
+          <h1>Give items a second story with your neighborhood marketplace.</h1>
+          <p class="subtext">
+            Local Loop helps people list, rent, and discover second-hand items while supporting
+            student-friendly pricing and community events.
+          </p>
+          <div class="hero-actions">
+            <button class="primary">List an item</button>
+            <button class="ghost">Browse rentals</button>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <h3>6k+</h3>
+              <span>Local listings</span>
+            </div>
+            <div>
+              <h3>2.4k</h3>
+              <span>Items rented monthly</span>
+            </div>
+            <div>
+              <h3>12%</h3>
+              <span>Student tax rate</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>Quick tax check</h2>
+          <p>Tell us who you are and see the Local Loop tax rate.</p>
+          <div class="segmented">
+            <button class="segment active" data-role="normal">Normal user</button>
+            <button class="segment" data-role="student">College student</button>
+          </div>
+          <div class="rate">
+            <span>Estimated tax</span>
+            <strong id="tax-rate">15%</strong>
+          </div>
+          <div class="rate-details" id="tax-details">
+            Standard community rate applies for non-students.
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="register" class="section">
+        <div class="section-title">
+          <h2>Create your Local Loop account</h2>
+          <p>Register to list items, rent gear, and apply to local events.</p>
+        </div>
+        <div class="grid">
+          <form class="card" id="register-form">
+            <h3>Register</h3>
+            <label>
+              Full name
+              <input type="text" name="name" placeholder="Jordan Lee" required />
+            </label>
+            <label>
+              Email address
+              <input type="email" name="email" placeholder="jordan@school.edu" required />
+            </label>
+            <label>
+              Account type
+              <select name="role" required>
+                <option value="normal">Community member (15% tax)</option>
+                <option value="student">College student (12% tax)</option>
+              </select>
+            </label>
+            <button type="submit" class="primary full">Create account</button>
+            <p class="status" id="register-status"></p>
+          </form>
+          <div class="card highlight">
+            <h3>What you unlock</h3>
+            <p class="muted">Register once to access every Local Loop feature.</p>
+            <div class="summary">
+              <div class="summary-item">
+                <strong>Listings & rentals</strong>
+                <p>Post items in minutes and manage rental requests.</p>
+              </div>
+              <div class="summary-item">
+                <strong>Event applications</strong>
+                <p>Apply to garage and campus sales near you.</p>
+              </div>
+              <div class="summary-item">
+                <strong>Student pricing</strong>
+                <p>Activate the 12% student tax rate with a verified email.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="marketplace" class="section">
+        <div class="section-title">
+          <h2>Sell or rent your items in minutes</h2>
+          <p>Share details, select your listing type, and confirm the tax rate instantly.</p>
+        </div>
+        <div class="grid">
+          <form class="card" id="listing-form">
+            <h3>Create a listing</h3>
+            <label>
+              Item title
+              <input type="text" name="title" placeholder="Vintage desk lamp" required />
+            </label>
+            <label>
+              Category
+              <input type="text" name="category" placeholder="Home, Tech, Books" required />
+            </label>
+            <label>
+              Price ($)
+              <input type="number" name="price" placeholder="45" min="1" required />
+            </label>
+            <label>
+              Listing type
+              <select name="listingType" required>
+                <option value="sell">Sell</option>
+                <option value="rent">Rent</option>
+              </select>
+            </label>
+            <label>
+              Condition
+              <input type="text" name="condition" placeholder="Like new" />
+            </label>
+            <label>
+              Description
+              <textarea name="description" rows="3" placeholder="Share any important details..."></textarea>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" name="isStudent" />
+              I am a college student (12% tax)
+            </label>
+            <button type="submit" class="primary full">Publish listing</button>
+          </form>
+          <div class="card highlight" id="listing-summary">
+            <h3>Listing preview</h3>
+            <p class="muted">Your listing summary appears here after publishing.</p>
+            <div class="summary"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="student" class="section alt">
+        <div class="section-title">
+          <h2>College Corner</h2>
+          <p>
+            Students receive a 12% tax rate and access to exclusive campus sale events.
+            Choose your identity to unlock the right offers.
+          </p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Select your role</h3>
+            <p class="muted">Tell Local Loop how you identify for tailored pricing.</p>
+            <div class="role-options" id="role-options">
+              <button type="button" class="role-card active" data-role="normal">
+                <span>Community member</span>
+                <strong>15% tax</strong>
+              </button>
+              <button type="button" class="role-card" data-role="student">
+                <span>College student</span>
+                <strong>12% tax</strong>
+              </button>
+            </div>
+            <div class="role-banner" id="role-banner">
+              <strong>Community mode</strong>
+              <span>Standard rate, plus access to neighborhood garage sales.</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Student perks</h3>
+            <ul class="list">
+              <li>12% tax for students with valid .edu email.</li>
+              <li>Priority access to campus move-out and dorm sales.</li>
+              <li>Rent items for short-term semesters or internships.</li>
+              <li>Share listings with student-only bundles.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="events" class="section">
+        <div class="section-title">
+          <h2>Apply to local events</h2>
+          <p>Join garage sales or college events near you. Apply in seconds.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Upcoming events</h3>
+            <div class="tabs">
+              <button class="tab active" data-type="garage">Garage sale events</button>
+              <button class="tab" data-type="college">College sale events</button>
+            </div>
+            <div id="event-list" class="event-list"></div>
+          </div>
+          <form class="card" id="application-form">
+            <h3>Event application</h3>
+            <label>
+              Full name
+              <input type="text" name="name" placeholder="Avery Collins" required />
+            </label>
+            <label>
+              Email address
+              <input type="email" name="email" placeholder="avery@email.com" required />
+            </label>
+            <label>
+              Event type
+              <select name="eventType" required>
+                <option value="garage">Garage sale event</option>
+                <option value="college">College sale event</option>
+              </select>
+            </label>
+            <label>
+              Preferred location
+              <input type="text" name="locationPreference" placeholder="Near campus" />
+            </label>
+            <label class="toggle">
+              <input type="checkbox" name="isStudent" />
+              I am a college student
+            </label>
+            <button type="submit" class="primary full">Submit application</button>
+            <p class="status" id="application-status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>Local Loop</strong>
+        <p>Building a circular economy for campuses and communities.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#marketplace">Marketplace</a>
+        <a href="#student">College Corner</a>
+        <a href="#events">Events</a>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
